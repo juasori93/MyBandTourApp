@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="myBandTourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="myBandTourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -92,7 +92,7 @@
           <Property Name="PAIS" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LUGAR" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="GENERO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
           <Property Name="LUGARCOMPRA" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -131,18 +131,6 @@ warning 6002: The table/view 'myBandTour.sys.ipv6_database_firewall_rules' does 
           <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK_BANDA">
-          <End Role="BANDAS" Type="Self.BANDAS" Multiplicity="1" />
-          <End Role="TOURS" Type="Self.TOURS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BANDAS">
-              <PropertyRef Name="IDBANDA" />
-            </Principal>
-            <Dependent Role="TOURS">
-              <PropertyRef Name="BANDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -260,10 +248,6 @@ warning 6002: The table/view 'myBandTour.sys.ipv6_database_firewall_rules' does 
     [ipv6_database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[ipv6_database_firewall_rules] AS [ipv6_database_firewall_rules]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_BANDA" Association="Self.FK_BANDA">
-            <End Role="BANDAS" EntitySet="BANDAS" />
-            <End Role="TOURS" EntitySet="TOURS" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -281,8 +265,7 @@ warning 6002: The table/view 'myBandTour.sys.ipv6_database_firewall_rules' does 
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="myBandTourModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -372,7 +355,7 @@ warning 6002: The table/view 'myBandTour.sys.ipv6_database_firewall_rules' does 
           <Property Name="PAIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LUGAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="GENERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LUGARCOMPRA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BANDA1" Relationship="Self.FK_BANDA" FromRole="TOURS" ToRole="BANDAS" />
         </EntityType>
