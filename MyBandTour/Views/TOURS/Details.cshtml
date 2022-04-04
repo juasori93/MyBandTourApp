@@ -1,0 +1,67 @@
+﻿@model MyBandTour.Models.TOUR
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TOUR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PAIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUGAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUGAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GENERO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GENERO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUGARCOMPRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUGARCOMPRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BANDA1.BANDA1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BANDA1.BANDA1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
