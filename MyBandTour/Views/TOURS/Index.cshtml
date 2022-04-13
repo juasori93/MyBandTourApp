@@ -7,71 +7,76 @@
 
 <h2>Bienvenido a la pagina de actualizacion de tours</h2>
 
-<p>
-    @{
-        if (User.IsInRole("ADMIN"))
-        {
-            @Html.ActionLink("Create New", "Create")
-        }
-    }
 
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Banda
-        </th>
-        <th>
-            Pais
-        </th>
-        <th>
-            Lugar
-        </th>
-        <th>
-            Genero
-        </th>
-        <th>
-            Fecha de concierto:
-        </th>
-        <th>
-            Sitio donde se 
-            pueden comprar entradas:
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BANDA1.BANDA1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAIS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LUGAR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GENERO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LUGARCOMPRA)
-        </td>
-        <td>
-            @{
-                if (User.IsInRole("ADMIN"))
-                {
-                    @Html.ActionLink("Edit | ", "Edit", new { id = item.ID })
-                    @Html.ActionLink("Details | ", "Details", new { id = item.ID })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                }
+<div class="jumbotron">
+    <p>
+        @{
+            if (User.IsInRole("ADMIN"))
+            {
+                @Html.ActionLink("Create New", "Create")
             }
+        }
 
-        </td>
-    </tr>
-}
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Banda
+            </th>
+            <th>
+                Pais
+            </th>
+            <th>
+                Lugar
+            </th>
+            <th>
+                Genero
+            </th>
+            <th>
+                Fecha de concierto:
+            </th>
+            <th>
+                Sitio donde se
+                pueden comprar entradas:
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BANDA1.BANDA1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PAIS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LUGAR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GENERO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LUGARCOMPRA)
+                </td>
+                <td>
+                    @{
+                        if (User.IsInRole("ADMIN"))
+                        {
+                            @Html.ActionLink("Edit | ", "Edit", new { id = item.ID })
+                            @Html.ActionLink("Details | ", "Details", new { id = item.ID })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        }
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
