@@ -7,41 +7,66 @@
 
 <h2>Bienvenido a la pagina de actualizacion de bandas</h2>
 
-<p>
+@*Opciones si el usuario es admin o no*@
 
-    @{
-        if (User.IsInRole("ADMIN"))
-        {
-            @Html.ActionLink("Create New", "Create")
-        }
-    }
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Banda
-        </th>
-        <th></th>
-    </tr>
+<div class="jumbotron">
+    <p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BANDA1)
-        </td>
-        <td>
-
-            @{
+        @{
+            try
+            {
                 if (User.IsInRole("ADMIN"))
                 {
-                    @Html.ActionLink("Edit | ", "Edit", new { id = item.IDBANDA }) 
-                    @Html.ActionLink("Details | ", "Details", new { id = item.IDBANDA }) 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IDBANDA })
+                    @Html.ActionLink("Create New", "Create")
                 }
             }
+            catch (Exception)
+            {
 
-        </td>
-    </tr>
-}
+                throw;
+            }
 
-</table>
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Banda
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BANDA1)
+                </td>
+                <td>
+
+                    @{
+                        try
+                        {
+                            if (User.IsInRole("ADMIN"))
+                            {
+                                @Html.ActionLink("Edit | ", "Edit", new { id = item.IDBANDA })
+                                @Html.ActionLink("Details | ", "Details", new { id = item.IDBANDA })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IDBANDA })
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

@@ -257,6 +257,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Screenshot 2022-03-20 173156.png" />
+    <Content Include="Images\WhatsApp Image 2022-04-10 at 9.53.03 PM.jpeg" />
+    <Content Include="Images\WhatsApp Image 2022-04-10 at 9.53.04 PM.jpeg" />
     <Content Include="Models\ModelMyBandTour.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelMyBandTour.edmx</DependentUpon>
