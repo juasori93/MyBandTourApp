@@ -92,7 +92,7 @@ textarea {
 
 .button {
     width: 150px;
-    height: 50px;
+    height: 250px;
     cursor: pointer;
     float: left;
     margin: 15px;
@@ -105,7 +105,7 @@ textarea {
     font-weight: 400;
     color: #00c7ec;
     background-color: #012839;
-    height: 50px;
+    height: 75px;
     width: 200px;
     border: 1px solid #00c7ec;
     transition: all 0.2s ease-out;

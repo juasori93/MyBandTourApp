@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyBandTour.Models
 {
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]

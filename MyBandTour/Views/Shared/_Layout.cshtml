@@ -26,9 +26,17 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Lista de Tours", "Index", "TOURS")</li>
                     @{
-                        if (User.IsInRole("ADMIN"))
+                        try
                         {
-                            <li>@Html.ActionLink("Bandas", "Index", "BANDAS")</li>
+                            if (User.IsInRole("ADMIN"))
+                            {
+                                <li>@Html.ActionLink("Bandas", "Index", "BANDAS")</li>
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
                         }
                     }
                 </ul>

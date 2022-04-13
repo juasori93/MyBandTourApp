@@ -16,14 +16,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @{
-                if (User.IsInRole("ADMIN"))
-                {
-                    @Html.ActionLink("Registro", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
-                }
-            }
-        </li>
+        <li>@Html.ActionLink("Registro", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Acceso", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

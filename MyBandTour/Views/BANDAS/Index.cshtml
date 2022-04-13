@@ -7,14 +7,25 @@
 
 <h2>Bienvenido a la pagina de actualizacion de bandas</h2>
 
+@*Opciones si el usuario es admin o no*@
+
 <div class="jumbotron">
     <p>
 
         @{
-            if (User.IsInRole("ADMIN"))
+            try
             {
-                @Html.ActionLink("Create New", "Create")
+                if (User.IsInRole("ADMIN"))
+                {
+                    @Html.ActionLink("Create New", "Create")
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
     </p>
     <table class="table">
@@ -34,12 +45,21 @@
                 <td>
 
                     @{
-                        if (User.IsInRole("ADMIN"))
+                        try
                         {
-                            @Html.ActionLink("Edit | ", "Edit", new { id = item.IDBANDA })
-                            @Html.ActionLink("Details | ", "Details", new { id = item.IDBANDA })
-                            @Html.ActionLink("Delete", "Delete", new { id = item.IDBANDA })
+                            if (User.IsInRole("ADMIN"))
+                            {
+                                @Html.ActionLink("Edit | ", "Edit", new { id = item.IDBANDA })
+                                @Html.ActionLink("Details | ", "Details", new { id = item.IDBANDA })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.IDBANDA })
+                            }
                         }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+
                     }
 
                 </td>
